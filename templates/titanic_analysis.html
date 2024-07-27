@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="font-weight-bold">Titanic Dataset Analysis</h1>
+        <div class="card mb-4">
+            <div class="card-header font-weight-bold">
+                Summary
+            </div>
+            <div class="card-body font-weight-bold">
+                <p><strong>Total Passengers:</strong> {{ analysis.total_passengers }}</p>
+                <p><strong>Survival Rate:</strong> {{ analysis.survival_rate }}%</p>
+                <p><strong>Average Age:</strong> {{ analysis.average_age }}</p>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header font-weight-bold">
+                Class Distribution
+            </div>
+            <div class="card-body font-weight-bold">
+                <ul class="list-group font-weight-bold">
+                    {% for pclass, count in analysis.class_distribution.items %}
+                    <li class="list-group-item font-weight-bold">{{ pclass }}: {{ count }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header font-weight-bold">
+                Embarked Distribution
+            </div>
+            <div class="card-body font-weight-bold">
+                <ul class="list-group font-weight-bold">
+                    {% for embarked, count in analysis.embarked_distribution.items %}
+                    <li class="list-group-item font-weight-bold">{{ embarked }}: {{ count }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
